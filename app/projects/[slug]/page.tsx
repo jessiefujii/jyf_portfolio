@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Story } from "@/components/story";
 import { categories, getProject, projects } from "@/content/projects";
 
 // Prerender one page per entry in content/projects.ts at build time.
@@ -27,10 +28,10 @@ export default async function CaseStudyPage({
   // so unknown slugs are turned into a 404 here.
   if (!project) notFound();
 
-  const { links } = project;
+  const { links, story } = project;
 
   return (
-    <article className="mx-auto max-w-3xl">
+    <article className={`mx-auto ${story ? "max-w-5xl" : "max-w-3xl"}`}>
       <Link
         href="/projects"
         className="text-sm text-foreground/60 hover:text-foreground"
@@ -38,7 +39,7 @@ export default async function CaseStudyPage({
         ← All projects
       </Link>
 
-      <header className="mt-4">
+      <header className="mt-4 max-w-3xl">
         <p className="text-sm text-foreground/50">
           {categories.find((c) => c.id === project.category)?.label}
           {project.year && ` · ${project.year}`}
@@ -63,7 +64,8 @@ export default async function CaseStudyPage({
                 href={links.pdf}
                 className="rounded-md border border-foreground/20 px-4 py-2 text-sm font-medium hover:border-foreground/40"
               >
-                {links.pdfLabel ?? "Read the PDF"}
+                {links.pdfLabel ??
+                  (story ? "Original portfolio layout (PDF)" : "Read the PDF")}
               </a>
             )}
             {links.more?.map((link) => (
@@ -85,11 +87,28 @@ export default async function CaseStudyPage({
           alt={project.cover.alt}
           fill
           priority
-          sizes="(max-width: 768px) 100vw, 768px"
+          sizes={story ? "(max-width: 1024px) 100vw, 976px" : "(max-width: 768px) 100vw, 768px"}
           className="object-cover"
         />
       </div>
 
+      {story ? (
+        <>
+          <AtAGlance
+            question={project.question}
+            result={project.result}
+            tools={project.tools}
+          />
+          <div className="mt-12 max-w-3xl">
+            <Section title="What I did">
+              <BulletList items={project.whatIDid} />
+            </Section>
+          </div>
+          <div className="mt-16">
+            <Story blocks={story} />
+          </div>
+        </>
+      ) : (
       <div className="mt-12 space-y-12">
         <Section title="The question">
           <p className="text-lg">{project.question}</p>
@@ -146,7 +165,54 @@ export default async function CaseStudyPage({
           </Section>
         )}
       </div>
+      )}
     </article>
+  );
+}
+
+// Compact summary shown above a project's story: the question, the result
+// and the tools as rows, at the same width as "What I did" below it.
+function AtAGlance({
+  question,
+  result,
+  tools,
+}: {
+  question: string;
+  result: string[];
+  tools: string[];
+}) {
+  return (
+    <section className="mt-10 max-w-3xl space-y-6 rounded-lg border border-foreground/10 p-6">
+      <div>
+        <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-foreground/50">
+          The question
+        </h2>
+        <p className="text-lg">{question}</p>
+      </div>
+      <div>
+        <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-foreground/50">
+          The result
+        </h2>
+        <BulletList items={result} />
+      </div>
+      {tools.length > 0 && (
+        <div>
+          <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-foreground/50">
+            Tools
+          </h2>
+          <ul className="flex flex-wrap gap-2">
+            {tools.map((tool) => (
+              <li
+                key={tool}
+                className="rounded bg-foreground/5 px-2.5 py-1 font-mono text-sm"
+              >
+                {tool}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </section>
   );
 }
 

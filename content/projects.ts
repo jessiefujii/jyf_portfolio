@@ -12,6 +12,29 @@ export type ProjectImage = {
   caption?: string;
 };
 
+/** An image shown at its natural shape in a project's story: give its pixel size. */
+export type StoryImage = ProjectImage & { width: number; height: number };
+
+/**
+ * A project's story: an ordered list of blocks laid out like a portfolio page.
+ * When a project has a story, it replaces the gallery ("What I did" still shows above it).
+ *  - text:  a small section label and paragraphs
+ *  - split: paragraphs beside an image (image on the right unless side is "left")
+ *  - image: one image across the full width
+ *  - pair:  two images side by side
+ */
+export type StoryBlock =
+  | { type: "text"; label?: string; body: string[] }
+  | {
+      type: "split";
+      label?: string;
+      body: string[];
+      image: StoryImage;
+      side?: "left" | "right";
+    }
+  | { type: "image"; image: StoryImage }
+  | { type: "pair"; images: [StoryImage, StoryImage] };
+
 /** Sections on /projects, in display order. */
 export const categories = [
   { id: "data", label: "Data analysis" },
@@ -41,11 +64,13 @@ export type Project = {
   result: string[];
   tools: string[];
   gallery: ProjectImage[];
+  /** Optional portfolio-style layout; see StoryBlock. */
+  story?: StoryBlock[];
   links: {
     repo?: string;
     /** Path under /public, e.g. "/projects/my-slug/report.pdf" */
     pdf?: string;
-    /** Button text for `pdf`; defaults to "Read the PDF". */
+    /** Button text for `pdf`; defaults to "Read the PDF", or "Original portfolio layout (PDF)" on a story page. */
     pdfLabel?: string;
     /** Further links shown as buttons after the PDF, e.g. a full report or a related paper. */
     more?: { label: string; href: string }[];
@@ -562,7 +587,7 @@ const allProjects: Project[] = [
         src: "/projects/ideal-sustainable-city-design/rendered-plan.jpg",
         alt: "Photoshop-rendered top-view plan of Vista Celeste, with a train station, plaza, market, residences and observatory",
         caption:
-          "Rendered plan. Points of interest: Etoile d'Astrale Station, Vista Celeste Market, the station plaza, Vista Celeste Residences and Phoebe's Observatory.",
+          "Rendered plan. Points of interest: (1) Etoile d'Astrale Station, (2) Vista Celeste Market, (3) Etoile d'Astrale Station Plaza, (4) Vista Celeste Residences, (5) Phoebe's Observatory.",
       },
       {
         src: "/projects/ideal-sustainable-city-design/station-plaza.jpg",
@@ -588,6 +613,108 @@ const allProjects: Project[] = [
         src: "/projects/ideal-sustainable-city-design/pathways.png",
         alt: "Plan diagram of alleys, roads, transit lines and walkways",
         caption: "Pathways: alleys, roads, transit and walkways.",
+      },
+    ],
+    story: [
+      {
+        type: "split",
+        label: "Ideation",
+        body: [
+          "The design started by hand: a pencil sketch of a community built around transit-oriented design, with the train station as its anchor and the rail line curving through the site.",
+        ],
+        image: {
+          src: "/projects/ideal-sustainable-city-design/hand-drafting.jpg",
+          alt: "Pencil hand-drafting of the community plan",
+          caption: "Initial hand-drafting.",
+          width: 984,
+          height: 751,
+        },
+      },
+      {
+        type: "text",
+        label: "2D & 3D rendering",
+        body: [
+          "From the sketch, I digitized the plan in AutoCAD, then imported that linework into SketchUp to build a 3D model of the buildings. In Photoshop, I turned the top view into a rendered plan, with color, landscaping and the community's five key places numbered.",
+        ],
+      },
+      {
+        type: "pair",
+        images: [
+          {
+            src: "/projects/ideal-sustainable-city-design/autocad-plan.png",
+            alt: "AutoCAD line drawing of the plan with curved rail lines",
+            caption: "The plan digitized in AutoCAD.",
+            width: 988,
+            height: 659,
+          },
+          {
+            src: "/projects/ideal-sustainable-city-design/sketchup-model.jpg",
+            alt: "Aerial view of a white 3D SketchUp massing model of the community",
+            caption: "A 3D SketchUp model built from the AutoCAD linework.",
+            width: 1597,
+            height: 804,
+          },
+        ],
+      },
+      {
+        type: "image",
+        image: {
+          src: "/projects/ideal-sustainable-city-design/rendered-plan.jpg",
+          alt: "Photoshop-rendered top-view plan of Vista Celeste, with a train station, plaza, market, residences and observatory",
+          caption:
+            "Photoshop rendering of the plan. Points of interest: (1) Etoile d'Astrale Station, (2) Vista Celeste Market, (3) Etoile d'Astrale Station Plaza, (4) Vista Celeste Residences, (5) Phoebe's Observatory.",
+          width: 1599,
+          height: 1063,
+        },
+      },
+      {
+        type: "split",
+        label: "Pedestrian flow & land use",
+        side: "left",
+        body: [
+          "The train station is the area's primary hub, and the observatory a secondary one, with public space that fosters learning and growth. With a scenic viewpoint over the city, the observatory is a multifaceted space that shows the mixed-use nature of the community.",
+        ],
+        image: {
+          src: "/projects/ideal-sustainable-city-design/pedestrian-flow.png",
+          alt: "Plan diagram marking the primary hub at the station, the secondary hub at the observatory, and major and minor walkways",
+          caption: "Activity hubs and main walkways.",
+          width: 1595,
+          height: 732,
+        },
+      },
+      {
+        type: "image",
+        image: {
+          src: "/projects/ideal-sustainable-city-design/land-use.png",
+          alt: "Land use map with public, mixed-use, office, park, commercial and residential areas",
+          caption: "Land use patterns.",
+          width: 1597,
+          height: 675,
+        },
+      },
+      {
+        type: "split",
+        label: "Walkability",
+        body: [
+          "To adapt to the mountainous terrain, the city raises its railway lines so cars can pass underneath. The station's glass ceiling lets natural light reach commuters, and pedestrian-friendly paths weave out from its entrances, putting accessibility and a scenic walk through the city first.",
+        ],
+        image: {
+          src: "/projects/ideal-sustainable-city-design/pathways.png",
+          alt: "Plan diagram of alleys, roads, transit lines and walkways",
+          caption: "Pathways: alleys, roads, transit and walkways.",
+          width: 1595,
+          height: 755,
+        },
+      },
+      {
+        type: "image",
+        image: {
+          src: "/projects/ideal-sustainable-city-design/station-plaza.jpg",
+          alt: "Street-level rendering of a pedestrian plaza with people, trees and a blue-framed station entrance",
+          caption: "Etoile d'Astrale Station Plaza.",
+          width: 1593,
+          height: 837,
+        },
       },
     ],
     links: {
