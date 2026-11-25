@@ -45,6 +45,10 @@ export type Project = {
     repo?: string;
     /** Path under /public, e.g. "/projects/my-slug/report.pdf" */
     pdf?: string;
+    /** Button text for `pdf`; defaults to "Read the PDF". */
+    pdfLabel?: string;
+    /** Further links shown as buttons after the PDF, e.g. a full report or a related paper. */
+    more?: { label: string; href: string }[];
   };
 };
 
@@ -336,6 +340,13 @@ const allProjects: Project[] = [
     ],
     links: {
       pdf: "/projects/town-of-candor-comprehensive-plan/portfolio-pages.pdf",
+      pdfLabel: "My pages (PDF)",
+      more: [
+        {
+          label: "Full team plan (PDF, 72 pages)",
+          href: "/projects/town-of-candor-comprehensive-plan/town-of-candor-comprehensive-plan.pdf",
+        },
+      ],
     },
   },
   {
@@ -441,6 +452,13 @@ const allProjects: Project[] = [
     ],
     links: {
       pdf: "/projects/rome-neighborhood-analysis/portfolio-pages.pdf",
+      pdfLabel: "My pages (PDF)",
+      more: [
+        {
+          label: "Related paper: squatting in Italian cities (PDF)",
+          href: "/projects/rome-neighborhood-analysis/squatting-in-italian-cities.pdf",
+        },
+      ],
     },
   },
   {

@@ -47,3 +47,4 @@ Other options on an entry:
 - `featured: true` also shows the project on the home page.
 - `hidden: true` keeps a project off the site until it's ready.
 - `category` puts it under "Data analysis" or "Urban planning & design".
+- `links.pdfLabel` renames the PDF button, and `links.more` adds further buttons, such as a full report or a related paper.

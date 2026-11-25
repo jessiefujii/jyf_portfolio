@@ -48,7 +48,7 @@ export default async function CaseStudyPage({
         </h1>
         <p className="mt-3 text-lg text-foreground/70">{project.summary}</p>
 
-        {(links.repo || links.pdf) && (
+        {(links.repo || links.pdf || links.more?.length) && (
           <div className="mt-5 flex flex-wrap gap-3">
             {links.repo && (
               <a
@@ -63,9 +63,18 @@ export default async function CaseStudyPage({
                 href={links.pdf}
                 className="rounded-md border border-foreground/20 px-4 py-2 text-sm font-medium hover:border-foreground/40"
               >
-                Read the PDF
+                {links.pdfLabel ?? "Read the PDF"}
               </a>
             )}
+            {links.more?.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="rounded-md border border-foreground/20 px-4 py-2 text-sm font-medium hover:border-foreground/40"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         )}
       </header>

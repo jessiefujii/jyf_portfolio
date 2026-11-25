@@ -22,7 +22,7 @@ export default function Home() {
             See projects
           </Link>
           <a
-            href={`mailto:${site.email}`}
+            href="#contact"
             className="rounded-md border border-foreground/20 px-4 py-2 text-sm font-medium hover:border-foreground/40"
           >
             Get in touch
@@ -49,7 +49,7 @@ export default function Home() {
         </section>
       )}
 
-      <section className="max-w-2xl">
+      <section id="contact" className="max-w-2xl scroll-mt-8">
         <h2 className="text-xl font-semibold">Contact</h2>
         <p className="mt-2 text-foreground/70">
           The best way to reach me is email:{" "}
