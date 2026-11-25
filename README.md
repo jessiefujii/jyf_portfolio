@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jessie Fujii: Portfolio
 
-## Getting Started
+Personal portfolio site for my data analysis and urban planning & design work: a home page, a projects index, a case study for each project, and an about page.
 
-First, run the development server:
+Built with [Next.js](https://nextjs.org) (App Router), TypeScript and Tailwind CSS.
+
+## Running it locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000). Edits show up as soon as you save.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To check a production build: `npm run build`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## How it's organized
 
-## Learn More
+```
+app/
+  page.tsx                  home: intro, featured projects, contact
+  projects/page.tsx         all projects, grouped by category
+  projects/[slug]/page.tsx  one reusable case-study page per project
+  about/page.tsx            bio, experience, education, skills
+components/
+  project-card.tsx          card used on the home and projects pages
+content/
+  projects.ts               every project's content, one entry each
+  about.ts                  about-page text: bio, experience, skills
+  site.ts                   name, tagline, email and links
+public/
+  projects/<slug>/          each project's images and PDF
+```
 
-To learn more about Next.js, take a look at the following resources:
+The pages only lay content out; all the text lives in `content/`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Adding a project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Add an entry to the `projects` list in `content/projects.ts`. TypeScript flags any missing field.
+2. Put its cover, gallery images and PDF in `public/projects/<slug>/`, where `<slug>` matches the entry's `slug`.
 
-## Deploy on Vercel
+The home page, projects page and the new `/projects/<slug>` case study all pick it up automatically. Each case study has sections for the question, what I did, the result, tools, an image gallery, and links to the repo and PDF. Empty sections and missing links are hidden.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Other options on an entry:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `featured: true` also shows the project on the home page.
+- `hidden: true` keeps a project off the site until it's ready.
+- `category` puts it under "Data analysis" or "Urban planning & design".

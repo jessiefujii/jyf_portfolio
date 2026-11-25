@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProject, projects } from "@/content/projects";
+import { categories, getProject, projects } from "@/content/projects";
 
 // Prerender one page per entry in content/projects.ts at build time.
 export function generateStaticParams() {
@@ -39,7 +39,10 @@ export default async function CaseStudyPage({
       </Link>
 
       <header className="mt-4">
-        <p className="text-sm text-foreground/50">{project.year}</p>
+        <p className="text-sm text-foreground/50">
+          {categories.find((c) => c.id === project.category)?.label}
+          {project.year && ` · ${project.year}`}
+        </p>
         <h1 className="mt-1 text-3xl font-semibold tracking-tight sm:text-4xl">
           {project.title}
         </h1>
@@ -91,18 +94,20 @@ export default async function CaseStudyPage({
           <BulletList items={project.result} />
         </Section>
 
-        <Section title="Tools">
-          <ul className="flex flex-wrap gap-2">
-            {project.tools.map((tool) => (
-              <li
-                key={tool}
-                className="rounded bg-foreground/5 px-2.5 py-1 font-mono text-sm"
-              >
-                {tool}
-              </li>
-            ))}
-          </ul>
-        </Section>
+        {project.tools.length > 0 && (
+          <Section title="Tools">
+            <ul className="flex flex-wrap gap-2">
+              {project.tools.map((tool) => (
+                <li
+                  key={tool}
+                  className="rounded bg-foreground/5 px-2.5 py-1 font-mono text-sm"
+                >
+                  {tool}
+                </li>
+              ))}
+            </ul>
+          </Section>
+        )}
 
         {project.gallery.length > 0 && (
           <Section title="Gallery">

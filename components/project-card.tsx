@@ -21,10 +21,12 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="p-4">
         <div className="flex items-baseline justify-between gap-4">
           <h3 className="font-semibold">{project.title}</h3>
-          <span className="text-xs text-foreground/50">{project.year}</span>
+          {project.year && (
+            <span className="text-xs text-foreground/50">{project.year}</span>
+          )}
         </div>
         <p className="mt-1 text-sm text-foreground/70">{project.summary}</p>
-        <ul className="mt-3 flex flex-wrap gap-1.5">
+        <ul className="mt-3 flex flex-wrap gap-1.5 empty:hidden">
           {project.tools.map((tool) => (
             <li
               key={tool}
