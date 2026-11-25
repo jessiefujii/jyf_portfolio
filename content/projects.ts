@@ -21,7 +21,7 @@ export type StoryImage = ProjectImage & { width: number; height: number };
  *  - text:  a small section label and paragraphs
  *  - split: paragraphs beside an image (image on the right unless side is "left")
  *  - image: one image across the full width
- *  - pair:  two images side by side
+ *  - row:   two or three images side by side
  */
 export type StoryBlock =
   | { type: "text"; label?: string; body: string[] }
@@ -33,7 +33,10 @@ export type StoryBlock =
       side?: "left" | "right";
     }
   | { type: "image"; image: StoryImage }
-  | { type: "pair"; images: [StoryImage, StoryImage] };
+  | {
+      type: "row";
+      images: [StoryImage, StoryImage] | [StoryImage, StoryImage, StoryImage];
+    };
 
 /** Sections on /projects, in display order. */
 export const categories = [
@@ -363,6 +366,94 @@ const allProjects: Project[] = [
         caption: "Recommendations: village signage and a tourism website.",
       },
     ],
+    story: [
+      {
+        type: "split",
+        label: "Where residents work",
+        body: [
+          "Using the community survey, I mapped where Candor's working residents commute. The diagram shows a town that works as a bedroom community for the Ithaca and Binghamton areas.",
+        ],
+        image: {
+          src: "/projects/town-of-candor-comprehensive-plan/commuting-patterns.png",
+          alt: "Diagram of where Candor's working residents work: 26% in the Town of Candor, 30% in the Greater Ithaca area, 11% in the Greater Binghamton area, 2% in the Greater Elmira area and 31% elsewhere",
+          caption: "Commuting patterns for working residents, from the community survey.",
+          width: 555,
+          height: 403,
+        },
+      },
+      {
+        type: "text",
+        label: "Income",
+        body: [
+          "I tracked median household income across a decade of ACS estimates, adjusted for buying power, and compared Candor's change from 2016 to 2021 with its neighboring counties.",
+        ],
+      },
+      {
+        type: "image",
+        image: {
+          src: "/projects/town-of-candor-comprehensive-plan/median-income.png",
+          alt: "Line chart of Candor's median household income from 2012 to 2021 peaking in 2019, beside a bar chart comparing 2016 and 2021 median income for Candor and four neighboring counties",
+          caption: "Median household income (ACS 5-Year Estimates, 2012–2021).",
+          width: 1540,
+          height: 510,
+        },
+      },
+      {
+        type: "text",
+        label: "Existing conditions",
+        body: [
+          "Each existing-conditions page pairs a trend from the data with a short reading of what it means for the town, from labor participation and unemployment to how and how far residents commute.",
+        ],
+      },
+      {
+        type: "row",
+        images: [
+          {
+            src: "/projects/town-of-candor-comprehensive-plan/employment.jpg",
+            alt: "Plan page on existing economic conditions with a line chart of Candor's unemployment rate, 2012 to 2021",
+            caption: "Employment.",
+            width: 1230,
+            height: 1593,
+          },
+          {
+            src: "/projects/town-of-candor-comprehensive-plan/transportation.jpg",
+            alt: "Plan page with bar charts of mean commute times and ways of commuting in Candor",
+            caption: "Work commutes.",
+            width: 1230,
+            height: 1593,
+          },
+        ],
+      },
+      {
+        type: "split",
+        label: "Recommendations",
+        side: "left",
+        body: [
+          "The section closes with six goals, each written as an objective and its anticipated results, so the planning board can weigh them one at a time.",
+        ],
+        image: {
+          src: "/projects/town-of-candor-comprehensive-plan/recommendations.jpg",
+          alt: "Plan page with objectives and anticipated results for village signage and a Candor tourism website",
+          caption: "Recommendations: village signage and a tourism website.",
+          width: 1230,
+          height: 1593,
+        },
+      },
+      {
+        type: "split",
+        label: "Final review",
+        body: [
+          "The team presented the plan at a final review with this poster, covering open space, natural resources, the economy, land use and a SWOT analysis.",
+        ],
+        image: {
+          src: "/projects/town-of-candor-comprehensive-plan/final-review-poster.jpg",
+          alt: "Full Town of Candor Comprehensive Plan final review poster with sections on open space, natural resources, economic development, land use and a SWOT analysis",
+          caption: "The team's final review poster.",
+          width: 1201,
+          height: 1599,
+        },
+      },
+    ],
     links: {
       pdf: "/projects/town-of-candor-comprehensive-plan/portfolio-pages.pdf",
       pdfLabel: "My pages (PDF)",
@@ -473,6 +564,178 @@ const allProjects: Project[] = [
         alt: "An open notebook of handwritten field notes and a hand-drawn building elevation on graph paper, beside an archival housing-funding document in a plastic sleeve",
         caption:
           "My notes and drawings: field notes and a hand-drawn elevation, with an archival document from the team's research.",
+      },
+    ],
+    story: [
+      {
+        type: "split",
+        label: "Building ownership",
+        body: [
+          "Vigne Nuove mixes public low-income housing, cooperatives that pass into private ownership over time, and private housing. Almost every perimeter block is a former cooperative now in private hands, while the linear buildings are publicly owned by ATER, a department of the Rome government.",
+        ],
+        image: {
+          src: "/projects/rome-neighborhood-analysis/building-ownership.jpg",
+          alt: "Map of Vigne Nuove buildings colored by ownership: private, cooperative and public",
+          caption: "Building ownership: private, cooperative and public.",
+          width: 1055,
+          height: 1363,
+        },
+      },
+      {
+        type: "split",
+        label: "Building function",
+        side: "left",
+        body: [
+          "Most buildings are residential. Every commercial building is mixed-use, with homes above ground-floor shops and services, and the institutional buildings are schools, churches and public-service sites.",
+        ],
+        image: {
+          src: "/projects/rome-neighborhood-analysis/building-function.jpg",
+          alt: "Map of Vigne Nuove buildings colored by function: commercial, institutional and residential",
+          caption: "Building function: commercial, residential and institutional.",
+          width: 1060,
+          height: 1372,
+        },
+      },
+      {
+        type: "split",
+        label: "Building typologies",
+        body: [
+          "Three building types define the neighborhood, and I drew an elevation of each from our building surveys.",
+          "Perimeter blocks are uniform buildings set in squares around a courtyard shared by their residents.",
+        ],
+        image: {
+          src: "/projects/rome-neighborhood-analysis/elevation-perimeter.png",
+          alt: "Line-drawn elevation of a four-story perimeter block with a lower wing on the left",
+          caption: "Perimeter block.",
+          width: 1376,
+          height: 492,
+        },
+      },
+      {
+        type: "split",
+        side: "left",
+        body: [
+          "Palazzine are the most common type. Most are former cooperatives in Casale Nei that are now privately owned; the rest are private developments.",
+        ],
+        image: {
+          src: "/projects/rome-neighborhood-analysis/elevation-palazzina.png",
+          alt: "Line-drawn elevation of a four-story palazzina with balconies and two entrances",
+          caption: "Palazzina.",
+          width: 1384,
+          height: 696,
+        },
+      },
+      {
+        type: "image",
+        image: {
+          src: "/projects/rome-neighborhood-analysis/elevation-linear.png",
+          alt: "Line-drawn elevation of a long linear building with four entrances at its center",
+          caption:
+            "Linear building: long blocks with a vehicle passage through the center, five to seven stories depending on the slope.",
+          width: 1595,
+          height: 239,
+        },
+      },
+      {
+        type: "text",
+        label: "Transit access",
+        body: [
+          "I modeled walksheds around every bus stop: first the 400 m most riders will walk, then 80 m rings, each about one minute of walking. Together they show where the neighborhood's access to central Rome splits between east and west.",
+        ],
+      },
+      {
+        type: "row",
+        images: [
+          {
+            src: "/projects/rome-neighborhood-analysis/walksheds-400m.jpg",
+            alt: "Map of 400 meter walksheds around bus stops in Vigne Nuove, showing the 80 express bus route",
+            caption: "400 m walksheds and the 80 express bus.",
+            width: 1060,
+            height: 1376,
+          },
+          {
+            src: "/projects/rome-neighborhood-analysis/walksheds-minutes.jpg",
+            alt: "Map of concentric 1 to 5 minute walksheds around bus stops in Vigne Nuove",
+            caption: "1–5 minute walksheds (80 m rings).",
+            width: 1060,
+            height: 1380,
+          },
+        ],
+      },
+      {
+        type: "split",
+        label: "Street typologies",
+        side: "left",
+        body: [
+          "I classified every street into four types. Primary streets are two-lane roads carrying cars, buses and access to public facilities. Secondary streets are narrower, residential and lined with parking. Tertiary streets see little traffic, such as parking lots, and foot and bike paths are dirt paths through open green space.",
+        ],
+        image: {
+          src: "/projects/rome-neighborhood-analysis/street-typologies.jpg",
+          alt: "Street map of Vigne Nuove colored by primary, secondary and tertiary streets and foot or bike paths",
+          caption: "Street typologies.",
+          width: 1293,
+          height: 1597,
+        },
+      },
+      {
+        type: "text",
+        label: "Field research",
+        body: [
+          "Alongside weekly site visits, I drew a Lynch map of how I experienced the neighborhood, its paths, edges and landmarks, and kept field notes and drawings during the team's archival research.",
+        ],
+      },
+      {
+        type: "row",
+        images: [
+          {
+            src: "/projects/rome-neighborhood-analysis/lynch-map.jpg",
+            alt: "Hand-drawn ink map of Vigne Nuove showing the roundabouts, main roads, housing blocks, the church, the Porta di Roma mall and the original 1970s public housing",
+            caption: "My Lynch map of Vigne Nuove.",
+            width: 466,
+            height: 649,
+          },
+          {
+            src: "/projects/rome-neighborhood-analysis/notes-and-drawings.jpg",
+            alt: "An open notebook of handwritten field notes and a hand-drawn building elevation on graph paper, beside an archival housing-funding document in a plastic sleeve",
+            caption:
+              "My field notes and a hand-drawn elevation, with an archival document from the team's research.",
+            width: 1007,
+            height: 807,
+          },
+        ],
+      },
+      {
+        type: "text",
+        label: "Exhibition posters",
+        body: [
+          "For the final review, I designed the team's three exhibition posters, carrying the booklet's history, built-environment and transportation analysis onto large-format boards.",
+        ],
+      },
+      {
+        type: "row",
+        images: [
+          {
+            src: "/projects/rome-neighborhood-analysis/exhibition-poster-1.jpg",
+            alt: "Exhibition poster titled Vigne Nuove: History, with a 1849 to 2024 timeline, sections on the 1960s to the present and squatting, and study area and planning zone maps",
+            caption: "History and context.",
+            width: 1216,
+            height: 1596,
+          },
+          {
+            src: "/projects/rome-neighborhood-analysis/exhibition-poster-2.jpg",
+            alt: "Exhibition poster titled Vigne Nuove: Built Environment, with maps of building form, ownership, function and streets, and descriptions of linear, perimeter and palazzine buildings",
+            caption: "The built environment.",
+            width: 1216,
+            height: 1596,
+          },
+          {
+            src: "/projects/rome-neighborhood-analysis/exhibition-poster-3.jpg",
+            alt: "Exhibition poster titled Vigne Nuove: Transportation, with bus access and walkshed maps, a landmarks map with photos, and a looking-forward section",
+            caption: "Transportation, landmarks and looking forward.",
+            width: 1216,
+            height: 1596,
+          },
+        ],
       },
     ],
     links: {
@@ -638,7 +901,7 @@ const allProjects: Project[] = [
         ],
       },
       {
-        type: "pair",
+        type: "row",
         images: [
           {
             src: "/projects/ideal-sustainable-city-design/autocad-plan.png",

@@ -2,6 +2,7 @@
 
 export const bio = [
   "Hi, I'm Jessie Fujii, a Tokyo-based urban planner and designer with a degree in Urban and Regional Studies from Cornell University. I love figuring out how neighborhoods and cities work, and turning that understanding into plans that actually help the people who live there.",
+  "Right now I'm a product engineering intern at Quzilla Capital, working remotely on an HR and payroll platform. I take fixes and features from client needs to production, plan and run the quality assurance that protects clients' payroll and privacy data, and demo the product to clients in Japanese.",
   "My work has included mapping and data analysis to spot long-term trends in cities, surveying and documenting historic buildings by hand, and building community input, like resident surveys and interviews, directly into planning recommendations. I'm comfortable with the tools that bring this work to life too, from mapping software to design programs like Photoshop and InDesign, and I can present findings clearly to everyone from neighbors to city officials, in both English and Japanese.",
   "I'm particularly interested in roles where data, business insight and structured problem-solving intersect.",
 ];
