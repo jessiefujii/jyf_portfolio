@@ -268,7 +268,7 @@ const allProjects: Project[] = [
     title: "Town of Candor Comprehensive Plan",
     category: "planning",
     summary:
-      "A comprehensive plan for the Town of Candor, New York, made with a Cornell Design Connect team in Fall 2023. I wrote the economic development section.",
+      "A 72-page comprehensive plan for the Town of Candor Planning Board in New York, made with a Cornell Design Connect team in Fall 2023. I wrote the economic development section.",
     year: "2023",
     featured: true,
     cover: {
@@ -280,13 +280,16 @@ const allProjects: Project[] = [
     whatIDid: [
       "Joined a Cornell Design Connect team creating a comprehensive plan for the Town of Candor, through site visits, academic research, US Census data analysis, mapping and interviews.",
       "Designed and distributed a Qualtrics survey that reached more than 200 residents, and interviewed community leaders and academic experts.",
-      "Wrote the economic development section: existing conditions drawn from qualitative survey data and historical research, and statistical analysis of American Community Survey data on employment and work commutes.",
+      "Contributed to researching the town's history for the plan's community profile: Cayuga land along Catatonk Creek, settlement in the 1790s, the railroad's arrival in 1854, and Candor's post-war shift into a bedroom community as highways made commuting easier, a pattern the economic analysis then measured.",
+      "Wrote Part 5, Economic Development (10 of the plan's 72 pages), drawing on ACS 5-Year Estimates (2012–2021), BEA 2022 data, Data Axle business data and the community survey: existing conditions from survey responses and historical research, and statistical analysis of employment, commuting, income and local businesses.",
       "Documented the town's main tourism events, projected the key economic indicators forward, and set out next steps that address issues residents raised in the survey.",
     ],
     result: [
-      "An economic development section for the comprehensive plan, plus the team's final review poster.",
-      "Findings included a labor participation rate that recovered to 69.2% before dropping to 59.3% in 2021, and commutes that are long for a small town, though they have shortened over the past decade.",
-      "Recommendations included village business signage and a Candor tourism website to draw visitors to local businesses.",
+      "Candor is a bedroom community: only 26% of working residents work in the town itself, while 30% commute to the Ithaca area and 11% to Binghamton.",
+      "Labor participation rose to 69.2% before the pandemic, well above the state (58.6%) and national (62.6%) averages, then fell to 59.3% in 2021. Unemployment has hovered around 7.5%, above state and national levels.",
+      "Median household income peaked at about $59,300 in 2019, then fell more steeply than in neighboring counties.",
+      "Most local businesses have 1–4 employees, and over 70% have under $500,000 in sales.",
+      "Six recommendations: a shared venue for community events, village business signage, a Candor tourism website, nonprofit grants and crowdfunding, policies supporting local businesses and remote workers, and a grant writer shared with neighboring towns.",
     ],
     tools: [
       "ArcGIS Pro",
@@ -298,6 +301,18 @@ const allProjects: Project[] = [
       "Canva",
     ],
     gallery: [
+      {
+        src: "/projects/town-of-candor-comprehensive-plan/commuting-patterns.png",
+        alt: "Diagram of where Candor's working residents work: 26% in the Town of Candor, 30% in the Greater Ithaca area, 11% in the Greater Binghamton area, 2% in the Greater Elmira area and 31% elsewhere",
+        caption:
+          "Commuting patterns for working residents of Candor, from the community survey.",
+      },
+      {
+        src: "/projects/town-of-candor-comprehensive-plan/median-income.png",
+        alt: "Line chart of Candor's median household income from 2012 to 2021 peaking in 2019, beside a bar chart comparing 2016 and 2021 median income for Candor and four neighboring counties",
+        caption:
+          "Median household income: Candor's trend, and its 2016–2021 change against neighboring counties (ACS 5-Year Estimates).",
+      },
       {
         src: "/projects/town-of-candor-comprehensive-plan/final-review-poster.jpg",
         alt: "Full Town of Candor Comprehensive Plan final review poster with sections on open space, natural resources, economic development, land use and a SWOT analysis",
@@ -328,7 +343,7 @@ const allProjects: Project[] = [
     title: "Rome Neighborhood Analysis",
     category: "planning",
     summary:
-      "An in-depth study of Vigne Nuove, a neighborhood on the periphery of Rome, for CRP 4160: Rome Workshop with Cornell's Department of City and Regional Planning Class of 2025 cohort.",
+      "An in-depth study of Vigne Nuove, a neighborhood on the periphery of Rome: a 73-page booklet, Vigne Nuove: Redefining Public Perceptions Through the Evolution of Housing, made with four classmates for CRP 4160: Rome Workshop. I designed the booklet.",
     year: "2024",
     cover: {
       src: "/projects/rome-neighborhood-analysis/cover.jpg",
@@ -338,13 +353,16 @@ const allProjects: Project[] = [
       "How is Vigne Nuove built, who owns it, and how well is it served by transit?",
     whatIDid: [
       "Studied the neighborhood from January to May 2024 with other students in the Class of 2025 cohort, through academic research, weekly site visits, and building and street surveys.",
-      "Analyzed 20 years of Italian National Institute of Statistics (ISTAT) census data, 2001–2021, by census tract in Excel.",
+      "Led the five-person team: delegated roles and was the team's main point of contact with professors and TAs.",
+      "Worked with 20 years of Italian National Institute of Statistics (ISTAT) census data, 2001–2021, by census tract in Excel, for the team's statistical analysis.",
       "Modeled the areas within walking distance of bus stops, and mapped transit access and traffic patterns in ArcGIS, Excel and Illustrator.",
-      "Interviewed 5+ stakeholders and residents in English, Italian and Japanese.",
+      "Interviewed 5+ stakeholders and residents in English, Italian and Japanese. The team's interviewees ranged from a local bar owner, community activists and parish pastors to the president of Municipio III.",
+      "Drew my own Lynch map, a hand-drawn mental map of the neighborhood's paths, edges and landmarks, for the booklet's community engagement chapter, alongside teammates' and residents' maps.",
       "Mapped building ownership (public low-income housing, cooperatives and private housing) and building function, drew elevations of the area's three main building types, and classified the street network into four typologies.",
+      "Designed and laid out the whole 73-page booklet in InDesign, bringing every chapter's text, maps, charts and photos into one consistent design, and designed the team's three exhibition posters.",
     ],
     result: [
-      "Led the team's 73-page neighborhood analysis report, alongside final review posters and midterm and final presentations.",
+      "A 73-page neighborhood analysis booklet and three exhibition posters, all of which I designed, plus midterm and final presentations.",
       "The whole neighborhood is within 400 m of a bus stop, but only the western half is within walking distance of the 80 express bus, the main link to central Rome.",
       "Most of the western half is within a two-minute walk of a bus stop, while many public perimeter buildings in the east are three or four minutes away.",
     ],
@@ -357,6 +375,23 @@ const allProjects: Project[] = [
       "Adobe Lightroom",
     ],
     gallery: [
+      {
+        src: "/projects/rome-neighborhood-analysis/exhibition-poster-1.jpg",
+        alt: "Exhibition poster titled Vigne Nuove: History, with a 1849 to 2024 timeline, sections on the 1960s to the present and squatting, and study area and planning zone maps",
+        caption: "Exhibition poster 1 of 3, which I designed: history and context.",
+      },
+      {
+        src: "/projects/rome-neighborhood-analysis/exhibition-poster-2.jpg",
+        alt: "Exhibition poster titled Vigne Nuove: Built Environment, with maps of building form, ownership, function and streets, and descriptions of linear, perimeter and palazzine buildings",
+        caption:
+          "Exhibition poster 2 of 3, which I designed: the built environment.",
+      },
+      {
+        src: "/projects/rome-neighborhood-analysis/exhibition-poster-3.jpg",
+        alt: "Exhibition poster titled Vigne Nuove: Transportation, with bus access and walkshed maps, a landmarks map with photos, and a looking-forward section",
+        caption:
+          "Exhibition poster 3 of 3, which I designed: transportation, landmarks and looking forward.",
+      },
       {
         src: "/projects/rome-neighborhood-analysis/building-ownership.jpg",
         alt: "Map of Vigne Nuove buildings colored by ownership: private, cooperative and public",
@@ -390,6 +425,18 @@ const allProjects: Project[] = [
         alt: "Street map of Vigne Nuove colored by primary, secondary and tertiary streets and foot or bike paths",
         caption:
           "Street typologies: primary, secondary and tertiary streets, and foot/bike paths.",
+      },
+      {
+        src: "/projects/rome-neighborhood-analysis/lynch-map.jpg",
+        alt: "Hand-drawn ink map of Vigne Nuove showing the roundabouts, main roads, housing blocks, the church, the Porta di Roma mall and the original 1970s public housing",
+        caption:
+          "My Lynch map of Vigne Nuove: roundabouts, main roads, the church, the mall and the original 1970s public housing.",
+      },
+      {
+        src: "/projects/rome-neighborhood-analysis/notes-and-drawings.jpg",
+        alt: "An open notebook of handwritten field notes and a hand-drawn building elevation on graph paper, beside an archival housing-funding document in a plastic sleeve",
+        caption:
+          "My notes and drawings: field notes and a hand-drawn elevation, with an archival document from the team's research.",
       },
     ],
     links: {
