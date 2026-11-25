@@ -218,9 +218,96 @@ const allProjects: Project[] = [
         caption: "Recommendations for Coffee King.",
       },
     ],
+    story: [
+      {
+        type: "text",
+        label: "The data",
+        body: [
+          "Before testing anything, I set baselines in SQL for Nashville's businesses, reviews and star ratings.",
+        ],
+      },
+      {
+        type: "image",
+        image: {
+          src: "/projects/yelp-nashville-analysis/data-at-a-glance.png",
+          alt: "Slide with 6,971 businesses, a 3.64 average rating and 141,670 reviews, above a bar chart of star ratings",
+          caption: "The data at a glance.",
+          width: 1587,
+          height: 893,
+        },
+      },
+      {
+        type: "text",
+        label: "Trusting the data",
+        body: [
+          "The first surprise was an impossible standard deviation. Tracing it uncovered an uncleaned review table, so every analysis after it uses only verified Nashville reviews.",
+        ],
+      },
+      {
+        type: "image",
+        image: {
+          src: "/projects/yelp-nashville-analysis/trusting-the-data.png",
+          alt: "Slide showing 1,496,906 review rows narrowed to 141,670 clean Nashville reviews",
+          caption: "From 1.5 million raw review rows to 141,670 clean Nashville reviews.",
+          width: 1587,
+          height: 893,
+        },
+      },
+      {
+        type: "text",
+        label: "Three hypotheses",
+        body: [
+          "I tested whether review language, business attributes or location best explain ratings, using TF-IDF text analysis, regression and correlation in Python. Click a slide to read it full size.",
+        ],
+      },
+      {
+        type: "row",
+        images: [
+          {
+            src: "/projects/yelp-nashville-analysis/hypothesis-1-review-language.png",
+            alt: "Slide comparing words in high-rated reviews with words in low-rated reviews",
+            caption: "Review language.",
+            width: 1587,
+            height: 893,
+          },
+          {
+            src: "/projects/yelp-nashville-analysis/hypothesis-2-attributes.png",
+            alt: "Slide with a bar chart of attribute correlations with rating, highlighting +0.33 stars for outdoor seating",
+            caption: "Business attributes.",
+            width: 1587,
+            height: 893,
+          },
+          {
+            src: "/projects/yelp-nashville-analysis/hypothesis-3-location.png",
+            alt: "Slide with bar charts of business counts and average ratings by postal code",
+            caption: "Location.",
+            width: 1587,
+            height: 893,
+          },
+        ],
+      },
+      {
+        type: "text",
+        label: "Recommendations",
+        body: [
+          "The deck closes with three recommendations for Coffee King, in priority order.",
+        ],
+      },
+      {
+        type: "image",
+        image: {
+          src: "/projects/yelp-nashville-analysis/recommendations.png",
+          alt: "Slide listing three recommendations for Coffee King in priority order",
+          caption: "Recommendations for Coffee King.",
+          width: 1587,
+          height: 893,
+        },
+      },
+    ],
     links: {
       repo: "https://github.com/jessiefujii/yelp-nashville-analysis",
       pdf: "/projects/yelp-nashville-analysis/coffee-king-findings.pdf",
+      pdfLabel: "Findings deck (PDF)",
     },
   },
   {
@@ -286,9 +373,73 @@ const allProjects: Project[] = [
         caption: "Affordable housing projects, 2014 to present.",
       },
     ],
+    story: [
+      {
+        type: "split",
+        label: "Mapping both layers",
+        body: [
+          "I loaded NYC Open Data on affordable housing, census tracts, school districts and public school locations into GeoPandas, on one coordinate system. The map above shows where affordable housing has been built since 2014; this one shows the city's public schools.",
+        ],
+        image: {
+          src: "/projects/nyc-housing-school-location-analysis/public_schools.png",
+          alt: "Map of New York City with public schools plotted as blue points",
+          caption: "NYC public school locations.",
+          width: 853,
+          height: 820,
+        },
+      },
+      {
+        type: "split",
+        label: "Schools by district",
+        side: "left",
+        body: [
+          "To compare the two at a common scale, I counted public schools in each of the 32 school districts and joined the counts to the district shapes.",
+        ],
+        image: {
+          src: "/projects/nyc-housing-school-location-analysis/districts_by_school_count.png",
+          alt: "Map of NYC school districts shaded green, darker where a district has more public schools",
+          caption: "School districts shaded by number of public schools.",
+          width: 851,
+          height: 834,
+        },
+      },
+      {
+        type: "text",
+        label: "Spatial clusters",
+        body: [
+          "Local Moran's I found clusters in both layers. Comparing the two cluster maps by eye, the original 2024 poster concluded that affordable housing seemed unrelated to where schools are.",
+        ],
+      },
+      {
+        type: "image",
+        image: {
+          src: "/projects/nyc-housing-school-location-analysis/lisa_clusters.png",
+          alt: "Two side-by-side LISA cluster maps of NYC, one for affordable rental units and one for public schools",
+          caption:
+            "Local spatial clusters (p < 0.05). HH: high values near high; LL: low near low; ns: not significant.",
+          width: 794,
+          height: 390,
+        },
+      },
+      {
+        type: "split",
+        label: "Testing it directly",
+        body: [
+          "In 2026 I went back and tested the relationship instead of judging it from the maps. Totaling affordable rental units per district against its school count, with district size held constant, reversed the original conclusion: the scatter shows the link the maps hid.",
+        ],
+        image: {
+          src: "/projects/nyc-housing-school-location-analysis/units_vs_schools.png",
+          alt: "Scatter plot of affordable rental units against public schools for each school district, trending upward",
+          caption: "Affordable rental units vs. public schools by school district.",
+          width: 554,
+          height: 468,
+        },
+      },
+    ],
     links: {
       repo: "https://github.com/jessiefujii/nyc-housing-school-access",
       pdf: "/projects/nyc-housing-school-location-analysis/poster.pdf",
+      pdfLabel: "Original 2024 poster (PDF)",
     },
   },
   // In progress: remove `hidden: true` when it's ready to show.
@@ -793,6 +944,52 @@ const allProjects: Project[] = [
         src: "/projects/ithaca-savings-and-loan-building-survey/window-schedule.png",
         alt: "Window schedule table listing 130 windows, beside dimensioned drawings of window types A to D",
         caption: "Window schedule from the final set of survey drawings.",
+      },
+    ],
+    story: [
+      {
+        type: "text",
+        label: "Measured drawing",
+        body: [
+          "Each week we measured the building by hand and recorded it in field notes on graph paper, like the window cross-sections above. I then digitized those notes in AutoCAD as outside elevations, marking the wear we found on site.",
+        ],
+      },
+      {
+        type: "row",
+        images: [
+          {
+            src: "/projects/ithaca-savings-and-loan-building-survey/west-elevation.png",
+            alt: "AutoCAD west elevation of the two-story glass building, with an inset photo of a cracked window corner",
+            caption:
+              "West elevation. Noted: a crack in the bottom left corner of the window with a mail slot.",
+            width: 1068,
+            height: 521,
+          },
+          {
+            src: "/projects/ithaca-savings-and-loan-building-survey/east-elevation.png",
+            alt: "AutoCAD east elevation of the building, with an inset photo of its blue-paneled southeast corner",
+            caption: "East elevation. Noted: rust on the southeast corner.",
+            width: 1068,
+            height: 588,
+          },
+        ],
+      },
+      {
+        type: "text",
+        label: "Window schedule",
+        body: [
+          "The window schedule catalogs every window with a dimensioned drawing of each of the four types. Comparing them showed which windows had been replaced, and that the original building is largely intact.",
+        ],
+      },
+      {
+        type: "image",
+        image: {
+          src: "/projects/ithaca-savings-and-loan-building-survey/window-schedule.png",
+          alt: "Window schedule table listing 130 windows, beside dimensioned drawings of window types A to D",
+          caption: "Window schedule from the final set of survey drawings.",
+          width: 1595,
+          height: 1100,
+        },
       },
     ],
     links: {
