@@ -121,6 +121,7 @@ const allProjects: Project[] = [
     summary:
       "SQL and Python analysis of what drives Yelp ratings in Nashville, for a fictional coffee startup deciding where and how to open. Capstone project for the University of California, Davis SQL for Data Science specialization (Coursera).",
     year: "2026",
+    featured: true,
     cover: {
       src: "/projects/yelp-nashville-analysis/cover.png",
       alt: "Slide titled The Headline Finding, showing correlations of -0.377 for all Nashville businesses and -0.523 for coffee shops",
@@ -198,7 +199,7 @@ const allProjects: Project[] = [
       "Spatial analysis in Python of whether New York City's affordable housing is located near public schools. Final project for CRP 3850 at Cornell University, with statistical tests added later that reversed the original conclusion.",
     year: "2024",
     cover: {
-      src: "/projects/nyc-housing-school-location-analysis/affordable_housing_production.png",
+      src: "/projects/nyc-housing-school-location-analysis/cover.png",
       alt: "Map of New York City with affordable housing projects plotted as red points, concentrated in the Bronx, upper Manhattan and central Brooklyn",
     },
     question:
@@ -272,7 +273,7 @@ const allProjects: Project[] = [
     featured: true,
     cover: {
       src: "/projects/town-of-candor-comprehensive-plan/cover.jpg",
-      alt: "Top of the Town of Candor Comprehensive Plan final review poster, with the title over a photo of rolling hills, a park rendering, and survey charts",
+      alt: "Wooded hills and farm fields in Candor, New York, under a pale sky",
     },
     question:
       "What does Candor's economy look like today, where is it heading, and what can the town do to encourage economic growth?",
@@ -453,8 +454,8 @@ const allProjects: Project[] = [
       "Vista Celeste, a hypothetical transit-oriented community on a 22-acre site, designed for CRP 5861: Graphic Communications from hand sketches through AutoCAD, SketchUp and Photoshop renderings.",
     year: "2023",
     cover: {
-      src: "/projects/ideal-sustainable-city-design/cover.jpg",
-      alt: "Photoshop-rendered top-view plan of Vista Celeste, with a train station, plaza, market, residences and observatory",
+      src: "/projects/ideal-sustainable-city-design/observatory.jpg",
+      alt: "Rendering of Phoebe's Observatory, a white building with blue domes beside a tree-lined plaza",
     },
     question:
       "How would you design, and visually communicate to the public, a sustainable, walkable community built around a train station?",
@@ -491,6 +492,12 @@ const allProjects: Project[] = [
         src: "/projects/ideal-sustainable-city-design/sketchup-model.jpg",
         alt: "Aerial view of a white 3D SketchUp massing model of the community",
         caption: "3D SketchUp model built from the AutoCAD linework.",
+      },
+      {
+        src: "/projects/ideal-sustainable-city-design/rendered-plan.jpg",
+        alt: "Photoshop-rendered top-view plan of Vista Celeste, with a train station, plaza, market, residences and observatory",
+        caption:
+          "Rendered plan. Points of interest: Etoile d'Astrale Station, Vista Celeste Market, the station plaza, Vista Celeste Residences and Phoebe's Observatory.",
       },
       {
         src: "/projects/ideal-sustainable-city-design/station-plaza.jpg",

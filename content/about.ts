@@ -1,9 +1,9 @@
 // Content for the /about page. Edit text here; app/about/page.tsx only lays it out.
 
 export const bio = [
-  "I'm a Cornell University graduate (B.S. in Urban and Regional Studies, Business minor) with experience in research, data analysis and community-driven projects. I use technical and strategic insight to shape sustainable, functional spaces.",
-  "I work across GIS, quantitative analysis and research to understand how urban systems function and how they can be improved. My experience includes urban data research, GIS mapping and logistics, with projects spanning affordable housing, neighborhood planning and development studies.",
-  "I've worked in both the U.S. and Japan, bringing a global perspective and multilingual communication skills to analytical and collaborative work. I'm particularly interested in roles where data, business insight and structured problem-solving intersect.",
+  "Hi, I'm Jessie Fujii, a Tokyo-based urban planner and designer with a degree in Urban and Regional Studies from Cornell University. I love figuring out how neighborhoods and cities work, and turning that understanding into plans that actually help the people who live there.",
+  "My work has included mapping and data analysis to spot long-term trends in cities, surveying and documenting historic buildings by hand, and building community input, like resident surveys and interviews, directly into planning recommendations. I'm comfortable with the tools that bring this work to life too, from mapping software to design programs like Photoshop and InDesign, and I can present findings clearly to everyone from neighbors to city officials, in both English and Japanese.",
+  "I'm particularly interested in roles where data, business insight and structured problem-solving intersect.",
 ];
 
 export const education = [
